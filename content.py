@@ -57,17 +57,19 @@ async def generate_caption(topic: str) -> str:
 
 
 async def generate_image(topic: str) -> bytes:
-    """Mavzuga mos rasm generatsiya qiladi (bepul Pollinations.ai orqali, karta/kalit kerak emas)."""
+    """Mavzuga mos rasm generatsiya qiladi (bepul Pollinations.ai, flux model, karta/kalit kerak emas)."""
     image_prompt = (
-        f"professional high quality social media photo about {topic}, "
-        "if about camera/equipment: realistic studio product photography, "
-        "if about wedding/event: cinematic warm-lit wedding videography scene, "
-        "no text, no logo, no watermark"
+        f"professional photograph about {topic}, "
+        "if about camera/equipment: realistic studio product photography, sharp focus, softbox lighting, "
+        "if about wedding/event: cinematic warm-lit wedding videography scene, shallow depth of field, "
+        "photorealistic, highly detailed, 8k, sharp focus, professional color grading, "
+        "no text, no logo, no watermark, no blurry, no distorted, no cartoon"
     )
     encoded_prompt = urllib.parse.quote(image_prompt)
+    seed = random.randint(1, 1_000_000)
     url = (
         f"https://image.pollinations.ai/prompt/{encoded_prompt}"
-        "?width=1024&height=1024&nologo=true"
+        f"?width=1024&height=1024&nologo=true&model=flux&seed={seed}&enhance=true"
     )
 
     async with httpx.AsyncClient(timeout=90.0) as http_client:
@@ -82,3 +84,4 @@ async def generate_post() -> tuple[str, str, bytes]:
     caption = await generate_caption(topic)
     image_bytes = await generate_image(topic)
     return topic, caption, image_bytes
+    
