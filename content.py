@@ -31,7 +31,7 @@ STYLE_GUIDE = """
 Post matnini quyidagi uslubda yoz:
 - Hikoyaviy, samimiy, ta'sirchan ohangda, lekin mavzu kameralar/video-montaj/to'y-video sohasida bo'lishi shart
 - Qisqa jumlalar, izchil fikr rivoji
-- Batafsil va foydali ma'lumot bilan (uzun, to'liq post — 150-250 so'z atrofida)
+- Qisqa va ixcham (60-90 so'z atrofida) — uzun paragraflardan qoch
 - Oxirida bitta kuchli xulosa yoki chaqiriq (call-to-action) bilan tugasin
 - Emoji o'rinli ishlatilsin (ortiqcha bo'lmasin), matn Uzbekcha (lotin yozuvida) bo'lsin
 - Telegram uchun HTML formatlash ishlatilsin: <b>qalin</b>, kerak bo'lsa <i>qiya</i>
